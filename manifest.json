@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "SIT Timetable Exporter",
+  "version": "1.1.0",
+  "description": "Export your class schedule from the SIT self-service portal as an .ics calendar file or CSV.",
+  "host_permissions": ["https://in4sit.singaporetech.edu.sg/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://in4sit.singaporetech.edu.sg/*"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sit.timetable-exporter@local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
